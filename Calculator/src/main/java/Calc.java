@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Calc {
     Operations operations = new Operations();
@@ -19,15 +18,6 @@ public class Calc {
         }
         System.out.println("To return to the menu enter \"back\".");
         System.out.println("To close the application enter \"exit\".");
-        Scanner sc = new Scanner(System.in);
-        String answer = sc.nextLine();
-        if (answer.equals("back")) {
-            showMenu();
-        } else if (answer.equals("exit")) {
-            System.exit(-1);
-        } else {
-            System.out.println("Please, choose an action!");
-        }
     }
 
     double calculate(String operator, double a, double b) {

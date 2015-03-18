@@ -16,15 +16,11 @@ public class Operations {
     }
 
     boolean checkOperator(String str) {
-        boolean check = true;
         for (Action item : operator) {
-            if (item.getOperator().contains(str)) {
-                check = true;
-                break;
-            } else {
-                check = false;
+            if (item.getOperator().equals(str)) {
+                return true;
             }
         }
-        return check;
+        return false;
     }
 }

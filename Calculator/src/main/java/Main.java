@@ -8,7 +8,6 @@ public class Main {
         String answer;
 
         Calc calc = new Calc();
-        UserInteraction user = new UserInteraction();
         Operations operations = new Operations();
 
         calc.showMenu();
@@ -18,6 +17,15 @@ public class Main {
                 int action = sc.nextInt();
                 if (action == 1) {
                     calc.showHelp();
+                    sc = new Scanner(System.in);
+                    answer = sc.nextLine();
+                    if (answer.equals("back")) {
+                        calc.showMenu();
+                    } else if (answer.equals("exit")) {
+                        System.exit(-1);
+                    } else {
+                        System.out.println("Please, choose an action!");
+                    }
                 } else if (action == 2) {
                     do {
                         boolean check;
@@ -43,7 +51,7 @@ public class Main {
                         double result = calc.calculate(operator, num1, num2);
                         System.out.println(result);
 
-                        answer = user.askToContinue();
+                        answer = askToContinue();
                     } while (answer.equals("yes"));
                         System.out.println("thank you for using our app!!");
                         break;
@@ -60,5 +68,12 @@ public class Main {
              }
          }
      }
+
+    static String askToContinue() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Do you want to continue? Enter yes or no");
+        String answer = sc.nextLine();
+        return answer;
+    }
 }
 
