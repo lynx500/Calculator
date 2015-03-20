@@ -14,13 +14,4 @@ public class Operations {
     ArrayList<Action> getOperationsList() {
         return operator;
     }
-
-    boolean checkOperator(String str) {
-        for (Action item : operator) {
-            if (item.getOperator().equals(str)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
