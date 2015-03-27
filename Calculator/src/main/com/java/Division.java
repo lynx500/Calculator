@@ -1,7 +1,10 @@
 public class Division implements Action {
     @Override
-    public double act(double a, double b) {
+    public double act(double a, double b) throws DivisionByZeroException {
         double division = a / b;
+        if (b == 0) {
+            throw new DivisionByZeroException();
+        }
         return division;
     }
 

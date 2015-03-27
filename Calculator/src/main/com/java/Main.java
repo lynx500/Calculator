@@ -5,12 +5,12 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws UnsupportedOperationException {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         String answer;
         String exit = "exit";
 
-        Calc calc = new Calc();
+        Calc calc = new Calc(new Operations());
 
         showMenu();
 
@@ -49,12 +49,15 @@ public class Main {
                         try {
                             double num1 = Double.parseDouble(sc.nextLine());
                             double num2 = Double.parseDouble(sc.nextLine());
-                                double result = calc.calculate(operator, num1, num2);
-                                System.out.println(result);
+
+                            double result = calc.calculate(operator, num1, num2);
+                            System.out.println(result);
                             } catch (UnsupportedOperationException e) {
                                 System.out.println("Operator was incorrect! Try again");
-                            } catch (NumberFormatException e) {
-                            System.out.println("Enter the numbers!");
+                            } catch (DivisionByZeroException e) {
+                                System.out.println("Division by Zero is prohibited!");
+                            }catch (NumberFormatException e) {
+                                System.out.println("Enter the numbers!");
                         }
 
                         answer = askToContinue();
